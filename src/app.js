@@ -26,7 +26,7 @@ console.log(publicDir)
 app.get('/weather', (req, res) => {
     if(!req.query.address) {
         return res.send({
-            error: 'provide a validation address'
+            error: 'can you check the address, please...'
         })
     } 
     geocode(req.query.address, (error, {latitude, longitude, location} = {}) => {
@@ -70,14 +70,14 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         helptext: 'This is basic help, we are building it.',
-        title: 'Help Page',
+        title: 'Help',
         name: 'Mahesh'
     })
 })
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'My weather forecast',
+        title: 'Weather Forecast',
         name: 'Mahesh'
     })
 })

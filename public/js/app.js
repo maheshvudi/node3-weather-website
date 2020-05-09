@@ -22,9 +22,11 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 messageOne.textContent = data.location
                 messageTwo.textContent = data.forecast
+
                 //messageThree.textContent = JSON.stringify(data.sevenDay)
                 let sevenDayTable = "<table><caption>Forecast for the  week</caption>" +
                     "<tr><th>Summary</th><th>Temperature</th><th>Rain</th><th>Humidity</th></tr>";
+
                 data.sevenDay.forEach( (data) => {
                     sevenDayTable += "<tr><td>" + data.summary +
                         "</td><td>Low:&nbsp;" + data.tempLow +
@@ -33,6 +35,7 @@ weatherForm.addEventListener('submit', (e) => {
                         "</td><td>" + data.humidity.toFixed(2) + "%" +
                         "</td></tr>"
                 });
+                
                 sevenDayTable += "</table>"
                 divW.innerHTML = sevenDayTable
             }
