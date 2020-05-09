@@ -7,10 +7,30 @@ const forecast = (latitude, longitude, callback) => {
         if (error) {
             callback('Unable to connect to forecast services!', undefined)
         } else {
+            //console.log('------------Response ------------')
+            //console.log(response.body)
+            //console.log('------------Minutely ------------')
+            //console.log(response.body.minutely.data[0])
+            //console.log('------------Hourly ------------')
+            //console.log(response.body.hourly.data[0])
+            //console.log('------------Daily ------------')
+            //console.log(response.body.daily.data[0])            
             let info = response.body.daily.data[0].summary + ' It is currently ' +
             response.body.currently.temperature + ' degrees out. There is a ' +
             response.body.currently.precipProbability + '% chance of rain.'
-            callback(undefined, info)
+            
+            var sevenDay = []
+            response.body.daily.data.forEach( (eachDay) => {
+                sevenDay.push({
+                    summary: eachDay.summary,
+                    tempHigh: eachDay.temperatureHigh,
+                    tempLow: eachDay.temperatureLow,
+                    rain: eachDay.precipProbability * 100,
+                    humidity: eachDay.humidity * 100
+                })
+            });
+
+            callback(undefined, info, sevenDay)
         }
     })
 }
