@@ -1,5 +1,3 @@
-console.log('Client side javascript file is loaded')
-
 // Query selector, for tagname direct use of it, for css class .classname, for id #id of element
 const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
