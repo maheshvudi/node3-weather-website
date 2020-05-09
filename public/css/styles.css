@@ -53,7 +53,11 @@ button {
     padding: 8px;
 }
 
-/*h1 { 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+table, th, td {
+    border: 1px solid
 }
-*/
+
+caption { 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 8px
+}
